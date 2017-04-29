@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2017 at 09:15 AM
+-- Generation Time: Apr 29, 2017 at 03:46 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `t_berobat` (
   `id_dokter` int(11) NOT NULL,
   `tgl_berobat` date NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_berobat`
@@ -46,7 +46,10 @@ INSERT INTO `t_berobat` (`id_berobat`, `id_pasien`, `id_dokter`, `tgl_berobat`, 
 (8, 44, 4, '0000-00-00', 'Belum'),
 (9, 48, 6, '0000-00-00', 'Sudah'),
 (10, 48, 5, '0000-00-00', 'Belum'),
-(11, 50, 4, '0000-00-00', 'Sudah');
+(11, 50, 4, '0000-00-00', 'Sudah'),
+(12, 51, 6, '0000-00-00', 'Belum'),
+(13, 52, 5, '0000-00-00', 'Sudah'),
+(14, 52, 6, '0000-00-00', 'Sudah');
 
 -- --------------------------------------------------------
 
@@ -61,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `t_diagnosa` (
   `tgl_diagnosa` date NOT NULL,
   `id_dokter` int(11) NOT NULL,
   `id_pasien` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_diagnosa`
@@ -71,7 +74,9 @@ INSERT INTO `t_diagnosa` (`id_diagnosa`, `data_keluhan`, `data_diagnosa`, `tgl_d
 (1, 'Panas, Dingin', 'Gigi keropos', '2017-04-22', 6, 50),
 (2, 'Sakit Giigi', 'Skit Gigi', '2017-04-22', 6, 51),
 (3, 'gigi nyeri', 'Sakit Gigi', '2017-04-22', 6, 48),
-(4, 'Pusing', 'THT', '2017-04-22', 4, 50);
+(4, 'Pusing', 'THT', '2017-04-22', 4, 50),
+(5, 'Sering Kaget', 'Jantung Normal', '2017-04-28', 5, 52),
+(6, 'Gigi keropos', 'Sakit Gigi', '2017-04-28', 6, 52);
 
 -- --------------------------------------------------------
 
@@ -168,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `t_pasien` (
   `usia_pasien` int(3) NOT NULL,
   `statuspernikahan_pasien` varchar(15) NOT NULL,
   `pekerjaan_pasien` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_pasien`
@@ -180,7 +185,8 @@ INSERT INTO `t_pasien` (`id_pasien`, `nama_pasien`, `jeniskelamin_pasien`, `tmpt
 (44, 'Shafira Elhazima', 'Perempuan', 'Sumedang', '1998-07-30', 'Komp. Buah Batu Regency Blok D3 No. 1 Bandung', 'B', '087824660356', 18, 'Belum Menikah', 'Lain-lain'),
 (48, 'Hilda Florissa', 'Perempuan', 'Surabaya', '1992-02-12', 'Jl. Buah Batu No. 217 Bandung', 'A', '085720201122', 25, 'Belum Menikah', 'Pegawai Swasta'),
 (50, 'Anjas', 'Laki-laki', 'Purwokerto', '1997-04-17', 'Purwokerto', 'AB', '081318045315', 20, 'Menikah', 'Wiraswasta'),
-(51, 'Hanifa', 'Perempuan', 'Mojokerto', '1997-10-14', 'Mojokerto', 'B', '089967524168', 19, 'Belum Menikah', 'PNS');
+(51, 'Hanifa', 'Perempuan', 'Mojokerto', '1997-10-14', 'Mojokerto', 'B', '089967524168', 19, 'Belum Menikah', 'PNS'),
+(52, 'Basuki Cahyo', 'Laki-laki', 'Yogyakarta', '1993-01-12', 'Sleman, Yogyakarta.', 'B', '081783928422', 24, 'Menikah', 'PNS');
 
 -- --------------------------------------------------------
 
@@ -262,12 +268,12 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT for table `t_berobat`
 --
 ALTER TABLE `t_berobat`
-MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `t_diagnosa`
 --
 ALTER TABLE `t_diagnosa`
-MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `t_dokter`
 --
@@ -287,7 +293,7 @@ MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT for table `t_pasien`
 --
 ALTER TABLE `t_pasien`
-MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- Constraints for dumped tables
 --
