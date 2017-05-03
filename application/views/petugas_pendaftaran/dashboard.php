@@ -83,6 +83,30 @@
             </div>
           </div>
 
+          <div class="col-md-3">
+            <div class="card">
+              <h3 class="card-title">Data Dokter</h3>
+              <p style="font-size: 18px;" align="justify">
+              <?php 
+                $countDokter = $this->db->count_all ('t_dokter');
+                echo "$countDokter";
+              ?>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card">
+              <h3 class="card-title">Data Karyawan</h3>
+              <p style="font-size: 18px;" align="justify">
+              <?php 
+                $countKaryawan = $this->db->count_all ('t_user');
+                echo "$countKaryawan";
+              ?>
+              </p>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-lg-12">
               <div class="panel panel-default">
