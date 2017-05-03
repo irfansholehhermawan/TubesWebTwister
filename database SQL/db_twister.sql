@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2017 at 03:46 AM
+-- Generation Time: May 03, 2017 at 08:54 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `t_berobat` (
   `id_dokter` int(11) NOT NULL,
   `tgl_berobat` date NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_berobat`
@@ -49,7 +49,9 @@ INSERT INTO `t_berobat` (`id_berobat`, `id_pasien`, `id_dokter`, `tgl_berobat`, 
 (11, 50, 4, '0000-00-00', 'Sudah'),
 (12, 51, 6, '0000-00-00', 'Belum'),
 (13, 52, 5, '0000-00-00', 'Sudah'),
-(14, 52, 6, '0000-00-00', 'Sudah');
+(14, 52, 6, '0000-00-00', 'Sudah'),
+(15, 53, 6, '0000-00-00', 'Sudah'),
+(16, 54, 6, '0000-00-00', 'Sudah');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `t_diagnosa` (
   `tgl_diagnosa` date NOT NULL,
   `id_dokter` int(11) NOT NULL,
   `id_pasien` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_diagnosa`
@@ -76,7 +78,9 @@ INSERT INTO `t_diagnosa` (`id_diagnosa`, `data_keluhan`, `data_diagnosa`, `tgl_d
 (3, 'gigi nyeri', 'Sakit Gigi', '2017-04-22', 6, 48),
 (4, 'Pusing', 'THT', '2017-04-22', 4, 50),
 (5, 'Sering Kaget', 'Jantung Normal', '2017-04-28', 5, 52),
-(6, 'Gigi keropos', 'Sakit Gigi', '2017-04-28', 6, 52);
+(6, 'Gigi keropos', 'Sakit Gigi', '2017-04-28', 6, 52),
+(7, 'kakakka', 'pusing', '2017-04-29', 6, 53),
+(8, 'Giigi ngilu', 'Gigi Keropos', '2017-05-03', 6, 54);
 
 -- --------------------------------------------------------
 
@@ -173,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `t_pasien` (
   `usia_pasien` int(3) NOT NULL,
   `statuspernikahan_pasien` varchar(15) NOT NULL,
   `pekerjaan_pasien` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_pasien`
@@ -186,7 +190,9 @@ INSERT INTO `t_pasien` (`id_pasien`, `nama_pasien`, `jeniskelamin_pasien`, `tmpt
 (48, 'Hilda Florissa', 'Perempuan', 'Surabaya', '1992-02-12', 'Jl. Buah Batu No. 217 Bandung', 'A', '085720201122', 25, 'Belum Menikah', 'Pegawai Swasta'),
 (50, 'Anjas', 'Laki-laki', 'Purwokerto', '1997-04-17', 'Purwokerto', 'AB', '081318045315', 20, 'Menikah', 'Wiraswasta'),
 (51, 'Hanifa', 'Perempuan', 'Mojokerto', '1997-10-14', 'Mojokerto', 'B', '089967524168', 19, 'Belum Menikah', 'PNS'),
-(52, 'Basuki Cahyo', 'Laki-laki', 'Yogyakarta', '1993-01-12', 'Sleman, Yogyakarta.', 'B', '081783928422', 24, 'Menikah', 'PNS');
+(52, 'Basuki Cahyo', 'Laki-laki', 'Yogyakarta', '1993-01-12', 'Sleman, Yogyakarta.', 'B', '081783928422', 24, 'Menikah', 'PNS'),
+(53, 'jannahaja', 'Perempuan', 'jh', '2017-04-29', 'xsc', 'A', '0987', 0, 'Belum Menikah', 'PNS'),
+(54, 'Abdul', 'Laki-laki', 'Klaten', '1993-03-01', 'Prambanan, Gantiwarno, Klaten', 'AB', '081244633890', 24, 'Belum Menikah', 'Lain-lain');
 
 -- --------------------------------------------------------
 
@@ -268,12 +274,12 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT for table `t_berobat`
 --
 ALTER TABLE `t_berobat`
-MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `id_berobat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `t_diagnosa`
 --
 ALTER TABLE `t_diagnosa`
-MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `t_dokter`
 --
@@ -293,7 +299,7 @@ MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT for table `t_pasien`
 --
 ALTER TABLE `t_pasien`
-MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
+MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- Constraints for dumped tables
 --
@@ -309,8 +315,8 @@ ADD CONSTRAINT `t_berobat_ibfk_2` FOREIGN KEY (`id_dokter`) REFERENCES `t_dokter
 -- Constraints for table `t_diagnosa`
 --
 ALTER TABLE `t_diagnosa`
-ADD CONSTRAINT `fk_dokter_diagnosa` FOREIGN KEY (`id_dokter`) REFERENCES `t_dokter` (`id_dokter`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `fk_pasien_diagnosa` FOREIGN KEY (`id_pasien`) REFERENCES `t_pasien` (`id_pasien`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `fk_pasien_diagnosa` FOREIGN KEY (`id_pasien`) REFERENCES `t_pasien` (`id_pasien`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `t_diagnosa_ibfk_1` FOREIGN KEY (`id_dokter`) REFERENCES `t_berobat` (`id_dokter`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
