@@ -43,7 +43,7 @@
                 <li><a href="<?php echo base_url('c_logistik/tampil_item_non_obat');?>"><i class="fa fa-stethoscope"></i> Medis non Obat</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url('c_logistik/tampil_restock');?>"><i class="fa fa-list"></i><span>List Inventory re-Stock</span></a></li>
+            <li><a href="<?php echo base_url('c_logistik/tampil_obat');?>"><i class="fa fa-list"></i><span>List Inventory re-Stock</span></a></li>
           </ul>
         </section>
       </aside>
