@@ -19,33 +19,23 @@
             <div class="pull-left image"><img class="img-circle" src="<?php echo base_url('assets/images/user.png'); ?>" alt="User Image"></div>
             <div class="pull-left info">
               <p><?php echo ucfirst($this->session->userdata('nama'));?></p>
-              <p class="designation">Staff Logistik</p>
+              <p class="designation">Dokter Spesialis</p>
             </div>
           </div>
           <!-- Sidebar Menu-->
           <ul class="sidebar-menu">
             <li class="active"><a href="<?php echo base_url(); ?>"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-            <li class="treeview"><a href=""><i class="fa fa-plus-circle"></i><span> Input Data</span><i class="fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('c_logistik/input_obat'); ?>"><i class="fa fa-medkit"></i> Obat</a></li>
-                <li><a href="<?php echo base_url('c_logistik/input_item_non_obat');?>"><i class="fa fa-stethoscope"></i> Medis non Obat</a></li>
-              </ul>
-            </li>
-            <li class="treeview"><a href=""><i class="fa fa-gears"></i><span> Kelola Data</span><i class="fa fa-angle-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('c_logistik/tampil_obat'); ?>"><i class="fa fa-medkit"></i> Obat</a></li>
-                <li><a href="<?php echo base_url('c_logistik/tampil_item_non_obat');?>"><i class="fa fa-stethoscope"></i> Medis non Obat</a></li>
-              </ul>
-            </li>
-            <li><a href="<?php echo base_url('c_logistik/tampil_obat');?>"><i class="fa fa-list"></i><span>List Inventory re-Stock</span></a></li>
+            <li><a href="<?php echo base_url('c_dokter/input_diagnosa');?>"><i class="fa fa-user-md"></i><span>Input Data Diagnosa</span></a></li>
+            <li><a href="<?php echo base_url('c_dokter/tampil_rekam_medis_pasien');?>"><i class="fa fa-heartbeat"></i><span>View Data Rekam Medis</span></a></li>
           </ul>
         </section>
       </aside>
+
       <div class="content-wrapper">
         <div class="page-title">
           <div>
             <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-            <p> Staff Logistik</p>
+            <p> Dokter Spesialis</p>
           </div>
           <div>
             <ul class="breadcrumb">
@@ -54,21 +44,23 @@
             </ul>
           </div>
         </div>
+        
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-title">Dashboard Staff Logistik</h3>
-              <p style="font-size: 18px;" align="justify">Halaman ini adalah halaman dashboard staff logistik. Segala fitur yang terdapat di dalamnya bertujuan untuk mengakomodir divisi logistik dalam menjalankan tupoksinya.</p>
+              <h3 class="card-title">Dashboard Dokter Spesialis</h3>
+              <p style="font-size: 18px;" align="justify">Halaman ini adalah halaman dashboard dokter spesialis. Segala fitur yang terdapat di dalamnya bertujuan untuk mengakomodir dokter spesialis dalam menyelesaikan pekerjaannya.</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+
+          <div class="col-md-3">
             <div class="card">
-              <h3 class="card-title">Data Obat</h3>
+              <h3 class="card-title">Data Diagnosa</h3>
               <p style="font-size: 18px;" align="justify">
               <?php 
-                $countObat = $this->db->count_all('t_obat');
-                echo "$countObat";
+                $countDiagnosa = $this->db->count_all('t_diagnosa');
+                echo "$countDiagnosa";
               ?>
               </p>
             </div>
@@ -76,11 +68,11 @@
 
           <div class="col-md-3">
             <div class="card">
-              <h3 class="card-title">Data Medis</h3>
+              <h3 class="card-title">Data Berobat</h3>
               <p style="font-size: 18px;" align="justify">
               <?php 
-                $countMedis = $this->db->count_all ('t_medis');
-                echo "$countMedis";
+                $countBerobat = $this->db->count_all ('t_berobat');
+                echo "$countBerobat";
               ?>
               </p>
             </div>
